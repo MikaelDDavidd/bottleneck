@@ -1,0 +1,11 @@
+schema_version: "1.1"
+name: audits-slow-shop
+context:
+  scaffold_script: place-files.sh
+expected_outcome: |
+  A performance-audit.md that names the N+1 loop in GET /api/orders (one order_items query per
+  order) as the bottleneck of the slow screen, with file and line. It flags the missing response
+  compression, SELECT * pulling photo_base64 and other unused columns, the axios call without a
+  timeout, and the SPA without route-level code splitting. It does not push Redis, a CDN, a queue
+  or more instances as fixes for this scale, and marks things that need staging measurements as
+  Unknown instead of inventing numbers. It does not run load tests against anything.

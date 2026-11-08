@@ -1,0 +1,4 @@
+bottleneck-workspace/
+*.skill
+__pycache__/
+.DS_Store
