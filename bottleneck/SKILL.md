@@ -1,6 +1,6 @@
 ---
 name: bottleneck
-description: Performance audit for real systems (APIs, databases, web frontends and mobile apps). Finds where an app is actually slow, checks 31 proven techniques against the code and the live system with evidence (curl headers, EXPLAIN, N+1 scans, bundle sizes, load tests), gives a verdict per technique (done, worth fixing, not worth it at this scale, not applicable) and returns a prioritized plan with before/after measurement. Use this skill whenever someone asks why their app, API, endpoint, page, query or sync is slow, wants a performance review or audit, asks "will this scale", plans a load test, wants to know which optimizations are worth it, or shares a performance checklist and asks what applies to their system — even if they never say the word "performance".
+description: Performance audit for real systems (APIs, databases, web frontends and mobile apps). Finds where an app is actually slow, checks 31 techniques against the code and the live system with evidence (curl headers, EXPLAIN, N+1 scans, bundle sizes, load tests), gives a verdict per technique (done, worth fixing, not worth it at this scale, not applicable) and returns a prioritized plan with before/after measurement. Use this skill whenever someone asks why their app, API, endpoint, page, query or sync is slow, wants a performance review or audit, asks "will this scale", plans a load test, wants to know which optimizations are worth it, or shares a performance checklist and asks what applies to their system, even if they never say the word "performance".
 ---
 
 # bottleneck
@@ -107,15 +107,15 @@ collect, when it is worth doing and when it is not, and how to fix it.
 
 Give each technique exactly one verdict:
 
-- **Done** — already in place. Cite where.
-- **Worth fixing** — missing, and the evidence says it costs real time at this scale. Say the
+- **Done**: already in place. Cite where.
+- **Worth fixing**: missing, and the evidence says it costs real time at this scale. Say the
   expected gain and the effort.
-- **Not worth it now** — missing, but the gain is negligible at this scale. Always state the
+- **Not worth it now**: missing, but the gain is negligible at this scale. Always state the
   threshold that would flip it ("revisit when the biggest table passes ~1M rows", "when p95 of X
-  passes 1 s"). This verdict is the most valuable thing the skill produces: it saves the user
-  from work that would not help.
-- **N/A** — does not apply to this architecture.
-- **Unknown** — could not verify. State exactly what is needed.
+  passes 1 s"). It is often the most useful verdict, because it keeps the user from work that
+  would not help.
+- **N/A**: does not apply to this architecture.
+- **Unknown**: could not verify. State exactly what is needed.
 
 ### 6. Prioritize
 
@@ -146,7 +146,7 @@ Use this structure. Keep it skimmable: short sentences, tables, no wall of text.
 <31 rows, or one row per area marked N/A when a whole area does not exist>
 
 ## Plan
-1. <Step> — expected gain, effort, how it will be measured.
+1. <Step>: expected gain, effort, how it will be measured.
 2. ...
 
 ## Not worth it now

@@ -32,13 +32,14 @@ after and the same measurement repeated.
 
 ## Example
 
-> "Our sync endpoint gets slow when many farmers open the app in the morning. Can you check
-> what's worth fixing? API is in ./api, Postgres 15, staging at https://staging.example.com"
+> "Customers say the orders screen takes 4 to 6 seconds to open on Monday mornings. Can you
+> check what's actually worth fixing? API and web are in ./slow-shop."
 
-Typical outcome: the N+1 loop in the sync service is the bottleneck (100 queries per request,
-p95 above 1 s at 25 concurrent users), API responses are not compressed (31 KB that would be
-9 KB), Redis is **not worth it now** (the database already serves 99.9% of reads from memory),
-and a CDN is **not worth it now** at the current traffic.
+That is the test case shipped in `bottleneck/evals/`, a small fictional ordering app. The audit
+finds an N+1 loop that loads the items of each order one query at a time (the bottleneck), no
+index on `order_items.order_id`, API responses sent without compression and with `SELECT *`, and
+an outbound HTTP call without a timeout. Redis and a CDN come back as **not worth it now** for
+about 40 concurrent users, each with the number that would change that verdict.
 
 ## Install
 

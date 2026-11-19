@@ -22,7 +22,7 @@ succeed (like, toggle, reorder, add item).
 
 **Worth fixing when** the action is frequent and failure is rare and recoverable.
 **Not worth it when** the action is irreversible or likely to fail (payments, unique
-constraints) — there, show progress instead. Offline-first apps that write locally and sync later
+constraints). There, show progress instead. Offline-first apps that write locally and sync later
 already do the strongest form of this.
 
 **Fix.** React Query/TanStack Query `onMutate` with rollback in `onError`, SWR `mutate` with
@@ -48,7 +48,7 @@ fetching the same data independently, effects running twice, refetch on every fo
 
 **Worth fixing when** duplicate calls hit slow endpoints or multiply load at peak.
 **Not worth it when** a data layer already deduplicates (TanStack Query, SWR, Apollo with the
-same key) — cite it.
+same key). Cite it.
 
 **Fix.** A shared query cache keyed by request, `staleTime` tuned per data type, request
 coalescing on the server for hot keys.
