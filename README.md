@@ -45,12 +45,12 @@ and a CDN is **not worth it now** at the current traffic.
 Claude Code (personal skills):
 
 ```bash
-git clone <this repo> && cp -R bottleneck/bottleneck ~/.claude/skills/bottleneck
+git clone https://github.com/MikaelDDavidd/bottleneck && cp -R bottleneck/bottleneck ~/.claude/skills/bottleneck
 ```
 
 Then ask Claude about a slow endpoint, page or app, or type `/bottleneck`.
 
-Claude.ai: upload the `bottleneck.skill` file from the releases page in Settings > Capabilities > Skills.
+Claude.ai: upload the `bottleneck.skill` file from the [releases page](https://github.com/MikaelDDavidd/bottleneck/releases/latest) in Settings > Capabilities > Skills.
 
 ## What's inside
 
@@ -82,3 +82,7 @@ bottleneck/
 The list of 31 techniques was inspired by a short video by
 [@gustagoat.ai](https://www.instagram.com/gustagoat.ai/) on Instagram. The text, structure,
 verdict rules, checks and scripts in this repository are original.
+
+## License
+
+MIT. See [LICENSE](LICENSE).
